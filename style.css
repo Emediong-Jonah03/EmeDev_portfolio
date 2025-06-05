@@ -181,7 +181,11 @@ ul a:hover,
   color: #5beccb;
   text-decoration: none;
 }
-
+.download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* ==== SKILLS ==== */
 .skills {
   padding: 7px;
