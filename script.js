@@ -71,173 +71,219 @@
   });
 
 
-  //=== CHATBOT TOGGLE ===//
-  function toggleChat() {
-    const box = document.getElementById("chatbox");
-    console.log("Toggle clicked");
-    box.style.display = box.style.display === "none" ? "flex" : "none";
-  }
+  document.addEventListener('DOMContentLoaded', function() {
+            // ===== DOM ELEMENTS ===== //
+            const launcher = document.getElementById('chatbot-launcher');
+            const container = document.getElementById('chatbot-container');
+            const closeBtn = document.getElementById('chatbot-close');
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+            const typingIndicator = document.getElementById('typing-indicator');
+            const quickReplies = document.querySelectorAll('.quick-reply');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const closeLightbox = document.getElementById('close-lightbox');
 
-  //=== BOT RESPONSE DATA ===//
-  const responses = [
-    {
-      keywords: ["hello", "hi", "hey"],
-      replies: [
-        "Hi, I'm EmeDev assistant 😄",
-        "Hey there! How can I help?",
-        "Hello! Need help with a project?"
-      ]
-    },
-    {
-      keywords: ["service", "offer", "do you do", "create", "build", "website"],
-      replies: [
-        "I help with landing pages, website creation, Figma to code, and problem solving!",
-        "EmeDev offers landing pages, full websites, and turning your ideas into code.",
-        "From Figma to a finished website — we’ve got you!"
-      ]
-    },
-    {
-      keywords: ["figma", "convert", "design"],
-      replies: [
-        "Yes! EmeDev converts Figma designs to clean, responsive code.",
-        "We turn your design dreams into real code! Figma to HTML/CSS? Easy.",
-        "Absolutely. Just send your design and we'll handle the rest."
-      ]
-    },
-    {
-      keywords: ["contact", "reach", "email", "phone", "message"],
-      replies: [
-        "You can email me at jonahemediong9@gmail.com or DM @EmediongJ15081.",
-        "Reach out anytime at jonahemediong9@gmail.com!",
-        "Just send a mail to jonahemediong9@gmail.com — I’ll respond fast."
-      ]
-    },
-    {
-      keywords: ["project", "portfolio", "work", "showcase", "view"],
-      replies: [
-        "Check out my projects section for samples of my work.",
-        "I’ve done projects in landing pages, hotels, templates, and more.",
-        "Take a look at the portfolio section above for recent projects.",
-        "You can send EmeDev a message to view the website"
-      ]
-    },
-    {
-      keywords: ["thanks", "thank you", "thx", "appreciate"],
-      replies: [
-        "You're welcome! Happy to help.",
-        "Glad I could assist 😊",
-        "Anytime! Let me know if you have more questions."
-      ]
-    },
-    {
-      keywords: ["bye", "goodbye", "see you", "later"],
-      replies: [
-        "Goodbye! Have a great day.",
-        "See you later! Come back anytime.",
-        "Bye! Stay safe and code on."
-      ]
-    }
-  ];
+            // ===== FREE UX FEATURES DATA ===== //
+            // 1. Project Gallery Data (REPLACE WITH YOUR IMAGE PATHS)
+            const projects = {
+                "Landing Pages": {
+                    images: ["images/landing1.jpg", "images/landing2.jpg"],
+                    description: "Custom conversion-focused pages built with HTML5/CSS3/JS"
+                },
+                "Website Templates": {
+                    images: ["images/template1.jpg"],
+                    description: "Reusable responsive templates for various industries"
+                }
+            };
 
-  //=== LEVENSHTEIN DISTANCE ===//
-  function levenshteinDistance(a, b) {
-    const matrix = Array.from({ length: b.length + 1 }, (_, i) => [i]);
-    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
-    for (let i = 1; i <= b.length; i++) {
-      for (let j = 1; j <= a.length; j++) {
-        if (b.charAt(i - 1) === a.charAt(j - 1)) matrix[i][j] = matrix[i - 1][j - 1];
-        else matrix[i][j] = Math.min(
-          matrix[i - 1][j - 1] + 1,
-          matrix[i][j - 1] + 1,
-          matrix[i - 1][j] + 1
-        );
-      }
-    }
-    return matrix[b.length][a.length];
-  }
+            // 5. Personalization
+            let userName = localStorage.getItem('chatUserName') || '';
+            let feedbackGiven = localStorage.getItem('feedbackGiven') === 'true';
+            let messageCount = 0;
 
-  function findResponse(input) {
-    input = input.toLowerCase();
-    const words = input.split(/\W+/);
+            // ===== INITIALIZATION ===== //
+            if (userName) {
+                addMessage(`Welcome back, <span class="welcome-back">${userName}</span>! How can I help you today?`, 'bot-message');
+            }
 
-    for (const group of responses) {
-      for (const keyword of group.keywords) {
-        for (const word of words) {
-          const distance = levenshteinDistance(word, keyword);
-          if (distance <= 1 || word === keyword) {
-            const replyArray = group.replies;
-            return replyArray[Math.floor(Math.random() * replyArray.length)];
-          }
-        }
-      }
-    }
-    return "Sorry, I didn't understand that. Could you please rephrase?";
-  }
+            // ===== CORE FUNCTIONS ===== //
+            function addMessage(text, className, animate = true) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', className);
+                messageElement.innerHTML = text;
+                
+                if (!animate) {
+                    messageElement.style.animation = 'none';
+                }
+                
+                messagesContainer.appendChild(messageElement);
+                scrollToBottom();
+            }
 
-  function typeWriter(text, i = 0, callback) {
-    const chatlog = document.getElementById("chatlog");
-    if (i < text.length) {
-      chatlog.lastChild.querySelector('.bot-message').textContent += text.charAt(i);
-      setTimeout(() => typeWriter(text, i + 1, callback), 20);
-    } else if (callback) {
-      callback();
-    }
-  }
+            function scrollToBottom() {
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
 
-  function addUserMessage(msg) {
-    const chatlog = document.getElementById("chatlog");
-    const userMsg = document.createElement("p");
-    userMsg.innerHTML = `<span class="user-message">You:</span> ${msg}`;
-    chatlog.appendChild(userMsg);
-    chatlog.scrollTop = chatlog.scrollHeight;
-  }
+            // ===== FREE FEATURE FUNCTIONS ===== //
+            // 1. Project Gallery
+            function showProjectGallery(projectName) {
+                const project = projects[projectName];
+                if (project) {
+                    lightboxImg.src = project.images[0];
+                    lightboxCaption.textContent = project.description;
+                    lightbox.classList.remove('hidden');
+                }
+            }
 
-  function addBotMessage(msg) {
-    const chatlog = document.getElementById("chatlog");
-    const botMsg = document.createElement("p");
-    botMsg.innerHTML = `<span class="bot-name">EmeDev Bot:</span> <span class="bot-message"></span>`;
-    chatlog.appendChild(botMsg);
-    typeWriter(msg);
-    chatlog.scrollTop = chatlog.scrollHeight;
-  }
+            // 2. Mailto Links
+            function createEmailLink(subject = 'Portfolio Inquiry', body = '') {
+                return `mailto:jonahemediong9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            }
 
-  function sendMessage() {
-    const input = document.getElementById("userInput");
-    const text = input.value.trim();
-    if (!text) return;
-    addUserMessage(text);
-    input.value = "";
-    const response = findResponse(text);
-    setTimeout(() => addBotMessage(response), 500);
-  }
+            // 3. Feedback System
+            function showFeedbackPrompt() {
+                if (feedbackGiven || document.querySelector('.feedback-buttons')) return;
+                
+                const feedbackMsg = document.createElement('div');
+                feedbackMsg.classList.add('message', 'bot-message');
+                feedbackMsg.innerHTML = `
+                    Was this conversation helpful?
+                    <div class="feedback-buttons">
+                        <button class="feedback-btn" data-feedback="yes">👍</button>
+                        <button class="feedback-btn" data-feedback="no">👎</button>
+                    </div>
+                `;
+                messagesContainer.appendChild(feedbackMsg);
+                scrollToBottom();
 
-  document.getElementById("sendBtn").addEventListener("click", sendMessage);
-  document.getElementById("userInput").addEventListener("keydown", (e) => {
-    if (e.key === "Enter") sendMessage();
-  });
+                document.querySelectorAll('.feedback-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        feedbackGiven = true;
+                        localStorage.setItem('feedbackGiven', 'true');
+                        feedbackMsg.innerHTML = 'Thank you for your feedback! 💙';
+                    });
+                });
+            }
 
-  //=== SPEECH RECOGNITION ===//
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = SpeechRecognition ? new SpeechRecognition() : null;
+            // ===== BOT RESPONSE LOGIC ===== //
+            function getBotResponse(userMessage) {
+                const lowerMessage = userMessage.toLowerCase();
+                
+                // 1. Project Gallery Trigger
+                const projectMatch = Object.keys(projects).find(name => 
+                    lowerMessage.includes(name.toLowerCase())
+                );
+                if (projectMatch) {
+                    setTimeout(() => showProjectGallery(projectMatch), 500);
+                    return `Here are some screenshots from my <strong>${projectMatch}</strong> project. Click to view!`;
+                }
+                
+                // 2. Contact with Mailto
+                if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('reach')) {
+                    const emailLink = createEmailLink(
+                        'Portfolio Inquiry', 
+                        `Hi Emediong,\n\nI saw your portfolio and wanted to discuss:\n\n[Your message here]`
+                    );
+                    return `You can contact Emediong directly:\n\n<a href="${emailLink}" style="color: #0077b5; text-decoration: underline;">📧 Send Email</a>\n\nOr via:\n\n• <a href="https://x.com/EmediongJ15081" target="_blank" style="color: #0077b5;">Twitter</a>\n• <a href="https://wa.me/message/JIBWQ6FWKT6CI1" target="_blank" style="color: #0077b5;">WhatsApp</a>`;
+                }
+                
+                // 3. Skills with Tooltip
+                if (lowerMessage.includes('skill') || lowerMessage.includes('tech') || lowerMessage.includes('expertise')) {
+                    return `Emediong specializes in:\n\n<div style="margin-top: 8px;">
+                        <span data-tooltip="Semantic markup, responsive design">HTML5/CSS3</span> • 
+                        <span data-tooltip="ES6+, React, Node">JavaScript</span> • 
+                        <span data-tooltip="Scripting, automation">Python</span>
+                    </div>\n\nHover over each skill for details!`;
+                }
+                
+                // 4. Projects
+                if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('portfolio')) {
+                    return `Recent projects include:\n\n• <strong data-tooltip="Click 'Projects' button to view">Landing Pages</strong>\n• <strong data-tooltip="Click 'Projects' button to view">Website Templates</strong>\n• Bug Fixing Services\n\nAsk "Can I see [project type]?" to view examples!`;
+                }
+                
+                // 5. Greetings
+                if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+                    return userName 
+                        ? `Hi again ${userName}! What would you like to know?` 
+                        : "Hi there! I'm Emediong's portfolio assistant. Ask me about his projects, skills, or contact info!";
+                }
+                
+                // Name capture
+                if ((lowerMessage.includes('name is') || lowerMessage.includes('i\'m ')) && !userName) {
+                    const name = message.split(/(name is|i\'m)/i)[2]?.trim() || message;
+                    userName = name.replace(/[^\w\s]/gi, '').substring(0, 20);
+                    localStorage.setItem('chatUserName', userName);
+                    return `Nice to meet you, ${userName}! How can I help you today?`;
+                }
+                
+                // Fallback
+                return "I'm not sure I understand. You can ask about:\n\n• My projects\n• Technical skills\n• Contact information\n\nOr email Emediong directly at jonahemediong9@gmail.com";
+            }
 
-  if (recognition) {
-    recognition.continuous = false;
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (message) {
+                    // Add user message
+                    addMessage(message, 'user-message');
+                    userInput.value = '';
+                    messageCount++;
+                    
+                    // Show typing indicator
+                    typingIndicator.classList.remove('hidden');
+                    scrollToBottom();
+                    
+                    setTimeout(() => {
+                        typingIndicator.classList.add('hidden');
+                        const response = getBotResponse(message);
+                        addMessage(response, 'bot-message');
+                        
+                        // Show feedback after 3 exchanges
+                        if (messageCount >= 3) {
+                            setTimeout(showFeedbackPrompt, 800);
+                        }
+                    }, 1000);
+                }
+            }
 
-    recognition.onresult = function(event) {
-      const transcript = event.results[0][0].transcript;
-      document.getElementById("userInput").value = transcript;
-      sendMessage();
-    };
-
-    recognition.onerror = function(event) {
-      console.error("Speech recognition error", event.error);
-    };
-  }
-
-  function startListening() {
-    if (recognition) recognition.start();
-    else alert("Speech Recognition is not supported in this browser.");
-  }
-
+            // ===== EVENT LISTENERS ===== //
+            launcher.addEventListener('click', function() {
+                container.classList.toggle('open');
+                if (container.classList.contains('open')) {
+                    userInput.focus();
+                }
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                container.classList.remove('open');
+            });
+            
+            sendButton.addEventListener('click', sendMessage);
+            
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            quickReplies.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const question = this.getAttribute('data-question');
+                    userInput.value = question;
+                    sendMessage();
+                });
+            });
+            
+            closeLightbox.addEventListener('click', function() {
+                lightbox.classList.add('hidden');
+            });
+            
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.add('hidden');
+                }
+            });
+        });
+    
