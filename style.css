@@ -9,8 +9,8 @@ html {
   scroll-behavior: smooth;
 }
 
-.scroll-top {
-  position: fixed;
+/* .scroll-top {
+   position: fixed;
   bottom: 30px;
   right: 30px;
   background-color: #64ffda;
@@ -22,7 +22,7 @@ html {
   cursor: pointer;
   display: none;
   z-index: 999;
-}
+} */
 
 :root {
   --text-light: #ffffff;
