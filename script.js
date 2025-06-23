@@ -8,19 +8,21 @@
   });
 
   // ====== Scroll to Top Button ======
-  const scrollBtn = document.createElement('button');
-  scrollBtn.innerText = '↑';
-  scrollBtn.classList.add('scroll-top');
-  document.body.appendChild(scrollBtn);
+   // const scrollBtn = document.createElement('button');
+   // scrollBtn.innerText = '↑';
+  // scrollBtn.classList.add('scroll-top');
+    //document.body.appendChild(scrollBtn);
 
-  window.addEventListener('scroll', () => {
-    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
+   // window.addEventListener('scroll', () => {
+  //  scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+//  });
 
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-  scrollBtn.setAttribute('aria-label', 'Scroll to top');
+//  scrollBtn.addEventListener('click', () => {
+ //   window.scrollTo({ top: 0, behavior: 'smooth' });
+//  });
+//  scrollBtn.setAttribute('aria-label', 'Scroll to top');
+
+    
   // ====== Typing Effect in Hero Section ======
   const heroHeading = document.querySelector('.hero h1');
   const originalText = heroHeading.textContent;
@@ -70,13 +72,6 @@
   }
   });
 
-
-  //=== CHATBOT TOGGLE ===//
-  function toggleChat() {
-    const box = document.getElementById("chatbox");
-    console.log("Toggle clicked");
-    box.style.display = box.style.display === "none" ? "flex" : "none";
-  }
 
   //=== BOT RESPONSE DATA ===//
   const responses = [
