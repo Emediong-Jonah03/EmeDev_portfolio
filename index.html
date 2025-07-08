@@ -23,120 +23,154 @@
   gtag('config', 'G-5FG3WK5H68');
   </script>
 </head>
+
 <body>
+  <!-- Header & Navigation -->
   <header>
-    <nav class="navbar">
-      <div class="logo">EmeDev</div>
-      <ul class="nav-links">
+    <nav class="navbar container" role="navigation" aria-label="Main Navigation">
+      <div class="logo">Eme Developers</div>
+      <div id="menuToogle">&#9776</div>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <div id="toggleTheme">🌙</div>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Designing Excellence.<br>Building Performance.</h1>
-      <p>I help global brands and businesses build high-performing, conversion-focused websites that stand out and deliver.</p>
-      <a href="#contact" class="btn-primary">Let’s Collaborate</a>
-    </div>
-    <div class="hero-img">
-      <img src="assets/optimized_portrait.webp" alt="Portrait of Emediong Jonah">
-    </div>
-  </section>
-
-  <section id="services">
-    <h2>Expertise</h2>
-    <div class="services-grid">
-      <div class="card">
-        <h3>Custom Landing Pages</h3>
-        <p>Strategically designed to maximize conversions and engagement. Clean, modern, and responsive.</p>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <h1>Websites That Perform.</h1>
+        <p>We create sleek, mobile-first websites for brands, businesses, and ministries — built to convert and scale.</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn-primary">🚀 Get Your Website Started</a>
+          <a href="https://wa.me/message/JIBWQ6FWKT6CI1" class="btn-secondary">💬 Let's Talk on WhatsApp</a>
+        </div>
       </div>
-      <div class="card">
-        <h3>Figma to Code</h3>
-        <p>Precise HTML & CSS conversion from your Figma or Adobe XD designs, built with performance in mind.</p>
+      <div class="hero-img">
+        <img src="assets/optimized_portrait.webp" alt="Portrait of Emediong Jonah" loading="lazy">
       </div>
-      <div class="card">
-        <h3>Reusable Templates</h3>
-        <p>Responsive, scalable components ready for integration into your next big digital product.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container">
+      <h2>What We Offer</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Landing Pages</h3>
+          <p>Responsive, high-converting one-page designs for businesses and campaigns.</p>
+        </div>
+        <div class="card">
+          <h3>Figma to HTML</h3>
+          <p>Pixel-perfect code from any Figma, XD, or design file. Built for performance.</p>
+        </div>
+        <div class="card">
+          <h3>Church & Business Sites</h3>
+          <p>Custom sites with sermons, donations, WhatsApp chat, and SEO integration.</p>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section id="portfolio">
-    <h2>Selected Work</h2>
-    <div class="portfolio-grid">
-      <div class="project">
-        <img src="assets/127.0.0.1_5500_Hotel_modhotel.html (2).png" alt="Luxury hotel website built for client in Nigeria" loading="lazy">
-        <h3>Luxury Hotel Web Platform</h3>
-        <a href="https://hotel-website-seven-mu.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-secondary">View Website</a>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn-primary">📩 Let's Build Yours Now</a>
+        <a href="#portfolio" class="btn-secondary">👀 See What We've Built</a>
       </div>
-      <div class="project">
-        <img src="assets/lante.png" alt="Startup landing page project" loading="lazy">
-        <h3>Startup Landing Page</h3>
-        <a href="https://emediong-jonah03.github.io/lante-landing-page/" target="_blank" rel="noopener noreferrer" class="btn-secondary">View Website</a>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="container">
+      <h2>Our Projects</h2>
+      <div class="grid image-grid">
+        
+        <!-- Project 1 -->
+        <div class="card">
+          <div class="card-inner">
+            <img src="assets/127.0.0.1_5500_Hotel_modhotel.html (2).png" alt="Hotel Website" loading="lazy">
+            <h3>Interactive Hotel Showcase</h3>
+          </div>
+          <a href="https://hotel-website-seven-mu.vercel.app/" target="_blank" class="btn-secondary">Visit Site</a>
+        </div>
+    
+        <!-- Project 2 -->
+        <div class="card">
+          <div class="card-inner">
+            <img src="assets/lante.png" alt="Startup Landing Page" loading="lazy">
+            <h3>Startup Landing Page</h3>
+          </div>
+          <a href="https://emediong-jonah03.github.io/lante-landing-page/" target="_blank" class="btn-secondary">Visit Site</a>
+        </div>
+    
+        <!-- Project 3 -->
+        <div class="card">
+          <div class="card-inner">
+            <img src="assets/futia-dlcf.vercel.app_.png" alt="Modern Beautiful Church website" loading="lazy">
+          </div>
+          <h3>Modern Beautiful Church Website</h3>
+          <a href="https://futia-dlcf.vercel.app/" target="_blank" class="btn-secondary">Visit Site</a>
+        </div>
+      </div> 
+      <!-- Call to Action Buttons -->
+      <div class="cta-buttons">
+        <a href="#contact" class="btn-primary">I Want Something Like This</a>
+        <a href="#services" class="btn-secondary">Show Me The Packages</a>
       </div>
-      <div class="project">
-        <img src="assets/127.0.0.1_5500_Hotel_ai.html.png" alt="Startup landing page project" loading="lazy">
-        <h3>Startup Landing Page</h3>
-        <a href="https://real-artme.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-secondary">View Website</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about container">
+      <h2>About Eme Developers</h2>
+      <p>Led by Emediong Jonah, Eme Developers builds clean, optimized websites for entrepreneurs, small businesses, and churches. Our mission is to make premium web design accessible and stress-free.</p>
+      <a href="Emediong_Jonah_Resume.pdf" class="btn-secondary">Download Resume</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div>
+        <h2>Let’s Work Together</h2>
+      <p>Get a stunning, mobile-first website crafted to grow your business or ministry. No stress. Just results.</p>
       </div>
-    </div>
-  </section>
+      <form action="https://formsubmit.co/jonahemediong9@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="How can we help you?" required></textarea>
+        <button type="submit" class="btn-primary">📨 Start My Website</button>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://eme-dev-portfolio.vercel.app/thank-you.html">
+      </form>
+      <a href="https://wa.me/message/JIBWQ6FWKT6CI1" class="btn-secondary">💬 Chat With a Developer</a>
+    </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m Emediong Jonah — a results-driven web developer who crafts high-end digital experiences. With a deep focus on clean design, scalability, and SEO performance, I’ve helped entrepreneurs, startups, and global brands bring their visions to life online.</p>
-    <a href="Emediong_Jonah_Resume.pdf" class="btn-secondary">Download Resume</a>
-  </section>
+  </main>
 
-  <section id="contact">
-    <h2>Let’s Build Something Remarkable</h2>
-    <form action="https://formsubmit.co/jonahemediong9@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="How can I help you?" required></textarea>
-      <button type="submit" class="btn-primary">Send Message</button>
-
-      <!-- Spam Protection & Redirect -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://eme-dev-portfolio.vercel.app/thank-you.html">
-    </form>
-  </section>
-
+  <!-- Social Icons -->
   <div class="icon-group">
-    <div class="icon-item">
-      <a href="https://x.com/EmediongJ15081?t=0XVIqp-YtMKEJgdVtuypgw&s=09"
-        target="_blank">
-        <iconify-icon icon="simple-icons:x" class="icon" style="color: black; background-color: white;"></iconify-icon>
-      </a>
-    </div>
-    <div class="icon-item">
-        <a href="https://www.linkedin.com/in/emediong-jonah-68a093329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-        target="_blank">
-        <iconify-icon icon="mdi:linkedin" class="icon" style="color: #0077B5;"></iconify-icon>
-      </a>
-    </div>
-    <div class="icon-item">
-    <a href="https://github.com/Emediong-Jonah03" target="_blank">
+    <a href="https://x.com/EmediongJ15081" target="_blank" aria-label="Twitter">
+      <iconify-icon icon="simple-icons:x"></iconify-icon>
+    </a>
+    <a href="https://www.linkedin.com/in/emediong-jonah-68a093329" target="_blank" aria-label="LinkedIn">
+      <iconify-icon icon="mdi:linkedin"></iconify-icon>
+    </a>
+    <a href="https://github.com/Emediong-Jonah03" target="_blank" aria-label="GitHub">
       <i class="fab fa-github"></i>
     </a>
-    </div>
   </div>
+
+  <!-- WhatsApp Floating Button -->
   <div class="whatsapp-icon">
-    <a href="https://wa.me/message/JIBWQ6FWKT6CI1"
-        target="_blank">
-        <iconify-icon icon="mdi:whatsapp" class="icon-whatapp" style="color: #25D366;"></iconify-icon>
-      </a>
+    <a href="https://wa.me/message/JIBWQ6FWKT6CI1" target="_blank" aria-label="WhatsApp">
+      <iconify-icon icon="mdi:whatsapp" class="icon-whatapp" style="color: #25D366;"></iconify-icon>
+    </a>
   </div>
-    
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 EmeDev. Designed & coded by Emediong Jonah. All rights reserved.</p>
+    <p>&copy; 2025 Eme Developers. Built by Emediong Jonah. All rights reserved.</p>
   </footer>
 
-  <button class="toggle-darkmode">🌙 Dark Mode</button>
-  <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script src="script.js" defer></script>
 </body>
 </html>
