@@ -3,240 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EmeDev Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Space+Grotesk&display=swap" rel="stylesheet">
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <meta name="description" content="Eme Developers – Fast, affordable, and professional web design and development by Emediong Jonah.">
+  <title>Eme Developers – Smart Web Solutions</title>
 
-  <link type="image/x-icon" rel="icon" href="assets/logo.png">
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preload" as="image" href="assets/optimized_portrait.webp">
 
+  <!-- SEO & Analytics -->
+  <meta property="og:description" content="Fast, affordable, and professional websites by Emediong Jonah.">
+  <meta property="og:image" content="https://eme-dev-portfolio.vercel.app/assets/optimized_portrait.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eme Developers – Smart Web Solutions">
+  <meta name="twitter:description" content="Fast, affordable, and professional websites by Emediong Jonah.">
+  <meta name="twitter:image" content="https://eme-dev-portfolio.vercel.app/assets/optimized_portrait.webp">
+  <meta name="google-site-verification" content="G-5FG3WK5H68" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FG3WK5H68"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5FG3WK5H68');
+  </script>
 </head>
+
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="logo"><a href="index2.html">EmeDev/></a></div>
-    <div class="menu-toggle">
-      <button aria-label="Toggle Menu" class="btn">&#9776;</button>
-    </div>
-    <ul class="navbar">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Header & Navigation -->
+  <header>
+    <nav class="navbar container" role="navigation" aria-label="Main Navigation">
+      <div class="logo">Eme Developers</div>
+      <div id="menuToogle">&#9776</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div id="toggleTheme">🌙</div>
+    </nav>
+  </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home" data-aos="fade-down"
-  data-aos-duration="1000"
-  data-aos-delay="200"
-  data-aos-easing="ease-in-out"
-  data-aos-once="true">
-    <h1>Hello, I'm Emediong Jonah</h1>
-    <p>Professional Web Developer at EmeDev</p>
-    <p>Creating Beautiful and Functional Websites
-      that helps businesses grow and succed online
-    </p>
-  </section>
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <h1>Websites That Perform.</h1>
+        <p>We create sleek, mobile-first websites for brands, businesses, and ministries — built to convert and scale.</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn-primary">🚀 Get Your Website Started</a>
+          <a href="https://wa.me/message/JIBWQ6FWKT6CI1" class="btn-secondary">💬 Let's Talk on WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="assets/optimized_portrait.webp" alt="Portrait of Emediong Jonah" loading="lazy">
+      </div>
+    </section>
 
-  <!-- About Section -->
+    <!-- Services Section -->
+    <section id="services" class="container">
+      <h2>What We Offer</h2>
+      <div class="grid">
+        <!-- Enhanced Service Cards With Icons -->
+        <div class="card">
+          <h3><span class="iconify" data-icon="mdi:code-tags" data-width="24"></span> Frontend Development</h3>
+          <p>I build fast, responsive, and user-friendly interfaces using HTML5, CSS3, JavaScript, and modern frameworks.</p>
+        </div>
+        <div class="card">
+          <h3><span class="iconify" data-icon="mdi:palette" data-width="24"></span> UI/UX Design</h3>
+          <p>Clean and intuitive web designs that enhance user experience and reflect your brand’s identity.</p>
+        </div>
+        <div class="card">
+          <h3><span class="iconify" data-icon="mdi:responsive" data-width="24"></span> Responsive Web Design</h3>
+          <p>Websites that look great on all devices — from desktops to mobile phones — with smooth layouts and interactions.</p>
+        </div>
+        <div class="card">
+          <h3><span class="iconify" data-icon="mdi:github" data-width="24"></span> Git & GitHub Collaboration</h3>
+          <p>Version control and seamless collaboration using Git and GitHub for efficient, professional development workflow.</p>
+        </div>
+        <div class="card">
+          <h3><span class="iconify" data-icon="mdi:robot-outline" data-width="24"></span> Smart Website Chatbots</h3>
+          <p>Engage your visitors with intelligent chatbots that respond instantly, guide users, collect leads, and support voice and dark mode.</p>
+        </div>
+        <div class="card">
+          <h3><span class="iconify" data-icon="simple-icons:latex" data-width="24"></span> Professional LaTeX Document Design</h3>
+          <p>I create beautifully formatted LaTeX documents for academic papers, resumes, reports, and more — with clean layouts and precise typography.</p>
+        </div>
+      </div>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn-primary">📩 Let's Build Yours Now</a>
+        <a href="#portfolio" class="btn-secondary">👀 See What We've Built</a>
+      </div>
+    </section>
 
-  <section id="about" class="about" 
-    data-aos="slide-right"
-    data-aos="fade-down"
-    data-aos-duration="1000"
-    data-aos-delay="200"
-    data-aos-easing="ease-in-out"
-    data-aos-once="true">
-    <img src="retouch_2025051314594254.jpg" alt="Profile Picture" class="profile">
-    <div class="abt-con">
-      <h2>About Me</h2>
-      <p>I am a passionate Web Developer specializing in responsive design and performance optimization. I turn ideas into beautifully designed websites.</p>
-      <p>
-        My approach combines clean code with modern design principles to deliver solutions that not only look great but also perform excellently across all devices 
-      </p>
-    </div>
-  </section>
-<section class="download">
-  <div class="download-btn">
-    <a href="Emediong_Jonah_Resume.pdf" download class="mt-4 inline-block bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition">
-      Download Resume
-    </a>
-</section>
+    <!-- Technology Icons -->
+    <section class="container">
+      <div class="grid">
+        <div class="card"><span class="iconify" data-icon="logos:html-5" data-width="40"></span></div>
+        <div class="card"><span class="iconify" data-icon="logos:css-3" data-width="40"></span></div>
+        <div class="card"><span class="iconify" data-icon="mdi:github" data-width="40"></span></div>
+        <div class="card"><span class="iconify" data-icon="logos:javascript" data-width="40"></span></div>
+        <div class="card"><span class="iconify" data-icon="logos:python" data-width="40"></span></div>
+        <div class="card"><span class="iconify" data-icon="simple-icons:latex" data-width="40"></span></div>
+      </div>
+    </section>
 
-  <!-- Skills Section -->
-  <section class="skills" id="skills" data-aos="slide-up"
-  data-aos="fade-down"
-  data-aos-duration="1000"
-  data-aos-delay="200"
-  data-aos-easing="ease-in-out"
-  data-aos-once="true">
-    <h2>Skills</h2>
-    <div class="skill-con">
-      <div class="lang-con">
-        <div class="lang">
-          <div class="icon-group">
-            <div class="icon-item">
-              <iconify-icon icon="simple-icons:html5" class="icon" style="color: #e34f26;"></iconify-icon>
-              <span>HTML5</span>
-            </div>
-            <div class="icon-item">
-              <iconify-icon icon="simple-icons:javascript" class="icon" style="color: #f7df1e;"></iconify-icon>
-              <span>JavaScript</span>
-            </div>
-            <div class="icon-item">
-              <iconify-icon icon="simple-icons:python" class="icon" style="color: #3776ab;"></iconify-icon>
-              <span>Python</span>
-            </div>
+    <!-- Portfolio Section With Descriptions -->
+    <section id="portfolio" class="container">
+      <h2>Our Projects</h2>
+      <div class="grid image-grid">
+        <div class="card">
+          <div class="card-inner">
+            <img src="assets/127.0.0.1_5500_Hotel_modhotel.html (2).png" alt="Hotel Website" loading="lazy">
+            <h3>Interactive Hotel Showcase</h3>
           </div>
+          <p>A sleek and responsive hotel website with booking features, ideal for showcasing hospitality services.</p>
+          <a href="https://hotel-website-seven-mu.vercel.app/" target="_blank" class="btn-secondary">Visit Site</a>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <img src="assets/lante.png" alt="Startup Landing Page" loading="lazy">
+            <h3>Startup Landing Page</h3>
+          </div>
+          <p>A modern landing page for startups built for conversions, featuring smooth layout and CTA-focused design.</p>
+          <a href="https://emediong-jonah03.github.io/lante-landing-page/" target="_blank" class="btn-secondary">Visit Site</a>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <img src="assets/futia-dlcf.vercel.app_.png" alt="Church Website" loading="lazy">
+            <h3>Modern Beautiful Church Website</h3>
+          </div>
+          <p>A clean and inspiring site for churches, with sermon sections and donation-friendly features.</p>
+          <a href="https://futia-dlcf.vercel.app/" target="_blank" class="btn-secondary">Visit Site</a>
+        </div>
       </div>
-    </div>
-  </section>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn-primary">I Want Something Like This</a>
+        <a href="#services" class="btn-secondary">Show Me The Packages</a>
+      </div>
+    </section>
 
-  <!-- Services Section -->
-  <section class="service" id="services" data-aos="slide-left"
-  data-aos="fade-down"
-  data-aos-duration="1000"
-  data-aos-delay="200"
-  data-aos-easing="ease-in-out"
-  data-aos-once="true">
-    <h2 class="ser">Services</h2>
-    <div class="service-con">
-      <div class="ups">
-        <h3>Landing Pages</h3>
-        <ul>
-          <li>Responsive Design</li>
-          <li>SEO Optimized</li>
-        </ul>
-      </div>
-      <div class="ups">
-        <h3>Figma to HTML</h3>
-        <ul>
-          <li>Pixel Perfect Conversion</li>
-          <li>Clean Code</li>
-        </ul>
-      </div>
-      <div class="ups">
-        <h3>Templates</h3>
-        <ul>
-          <li>Reusable Components</li>
-          <li>Scalable Layouts</li>
-        </ul>
-      </div>
-      <div class="ups">
-        <h3>Maintenance</h3>
-        <ul>
-          <li>Performance Tuning</li>
-          <li>Content Updates</li>
-          <li>Website Maintainace and Updates</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="about container">
+      <h2>About Eme Developers</h2>
+      <p>Led by Emediong Jonah, Eme Developers builds clean, optimized websites for entrepreneurs, small businesses, and churches. Our mission is to make premium web design accessible and stress-free.</p>
+      <a href="Emediong_Jonah_Resume.pdf" class="btn-secondary">Download Resume</a>
+    </section>
 
-  <!-- Projects Section -->
-  <section class="project" id="projects" data-aos="slide-up"
-  data-aos="fade-down"
-  data-aos-duration="1000"
-  data-aos-delay="200"
-  data-aos-easing="ease-in-out"
-  data-aos-once="true">
-    <div class="project-header">
-      <h2>My Projects</h2>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div>
+        <h2>Let’s Work Together</h2>
+        <p>Get a stunning, mobile-first website crafted to grow your business or ministry. No stress. Just results.</p>
       </div>
-    <div class="project-con">
-      <div class="project-grid">
-        <div class="project-item">
-          <img src="assets/127.0.0.1_5500_Hotel_ai.html.png" alt="Project 1">
-          <!--<p><a href="projects/land.html">View project</a></p>-->
-        </div>
-        <div class="project-item">
-          <img src="assets/127.0.0.1_5500_ai-modified.html_.png" alt="Project 2">
-         <!--<p><a href="projects/modified.html">View project</a></p>-->
-        </div>
-        <div class="project-item">
-          <img src="assets/127.0.0.1_5500_index.html.png" alt="Project 3">
-          <!--<p><a href="projects/lantery.html">View project</a></p>-->
-        </div>
-        <div class="project-item">
-          <img src="assets/127.0.0.1_5500_Hotel_modhotel.html (2).png" 
-           alt="Project 4">
-          <p><a href="https://emediong-jonah03.github.io/Hotel-website/">View project</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="contact-con" id="contact">
-    <h2>Contact Me</h2>
-    <div class="e-mail">
-      <a href="mailto:jonahemediong9@gmail.com">Send me a mail</a>
-    </div>
-    <div class="icon-group">
-  <div class="icon-item">
-    <a href="https://wa.me/message/JIBWQ6FWKT6CI1"
-      target="_blank">
-      <iconify-icon icon="mdi:whatsapp" class="icon" style="color: #25D366;"></iconify-icon>
-      <span>WhatsApp</span>
+      <form action="https://formsubmit.co/jonahemediong9@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="How can we help you?" required></textarea>
+        <button type="submit" class="btn-primary">📨 Start My Website</button>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://eme-dev-portfolio.vercel.app/thank-you.html">
+      </form>
+      <a href="https://wa.me/message/JIBWQ6FWKT6CI1" class="btn-secondary">💬 Chat With a Developer</a>
+    </section>
+  </main>
+
+  <!-- Social Icons -->
+  <div class="icon-group">
+    <a href="https://x.com/EmediongJ15081" target="_blank" aria-label="Twitter">
+      <iconify-icon icon="simple-icons:x"></iconify-icon>
+    </a>
+    <a href="https://www.linkedin.com/in/emediong-jonah-68a093329" target="_blank" aria-label="LinkedIn">
+      <iconify-icon icon="mdi:linkedin"></iconify-icon>
+    </a>
+    <a href="https://github.com/Emediong-Jonah03" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
     </a>
   </div>
-  <div class="icon-item">
-    <a href="https://x.com/EmediongJ15081?t=0XVIqp-YtMKEJgdVtuypgw&s=09"
-      target="_blank">
-      <iconify-icon icon="simple-icons:x" class="icon" style="color: black; background-color: white;"></iconify-icon>
-      <span>X (Twitter)</span>
-    </a>
-  </div>
-  <div class="icon-item">
-      <a href="https://www.linkedin.com/in/emediong-jonah-68a093329?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-      target="_blank">
-      <iconify-icon icon="mdi:linkedin" class="icon" style="color: #0077B5;"></iconify-icon>
-    <span>LinkedIn</span>
-    </a>
-  </div>
-</div>
-  </section>
- 
-  <!-- Footer Section -->
-  <footer class="footer">
-    <div class="footer-con">
-      <div class="footer-logo">EmeDev</div>
-      <div class="footer-text">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-      </div>
-    </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Eme Developers. Built by Emediong Jonah. All rights reserved.</p>
   </footer>
-   <!-- Chatbox -->
-   <button id="chat-toggle" onclick="toggleChat()" aria-label="Toggle Chat" style="position: fixed; bottom: 20px; left: 20px; z-index: 1000; background-color:#5beccb; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 16px; cursor: pointer;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-icon lucide-bot"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></button>
-   <div id="chatbox" style="display: none; position: fixed; bottom: 80px; left: 20px; width: 320px; height: 270px; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000; padding: 12px; flex-direction: column; font-family: 'Poppins', sans-serif; font-size: 14px;">
 
-  <div id="chatlog" style="flex: 1; overflow-y: auto; padding: 8px; border-bottom: 1px solid #eee;"></div>
-  <div style="display: flex; margin-top: 8px;">
-    <input type="text" id="userInput" placeholder="Message EmeDev assitant" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid; color: black;" />
-    <button id="sendBtn" style="margin-left: 6px; padding: 8px 12px; border: none; background-color:#5beccb ; color: white; border-radius: 4px; cursor: pointer;">Send</button>
-    <button onclick="startListening()" title="Voice input" style="margin-left: 6px; padding: 8px 12px; border: none; background-color: #2196F3; color: black; border-radius: 4px; cursor: pointer;">🎤</button>
-  </div>
-</div>
-<noscript>
-  <style>
-    .hero h1::after {
-      content: "Hello, I'm Emediong Jonah";
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Emediong Jonah",
+    "url": "https://eme-dev-portfolio.vercel.app",
+    "image": "https://eme-dev-portfolio.vercel.app/assets/optimized_portrait.webp",
+    "sameAs": [
+      "https://x.com/EmediongJ15081",
+      "https://www.linkedin.com/in/emediong-jonah-68a093329",
+      "https://github.com/Emediong-Jonah03"
+    ],
+    "jobTitle": "Frontend Web Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Eme Developers"
     }
-  </style>
-</noscript>
+  }
+  </script>
 
-<script src="script.js"></script>
-<!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-
+  <!-- JavaScript -->
+  <script src="script.js" defer></script>
 </body>
 </html>
