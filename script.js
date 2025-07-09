@@ -26,9 +26,11 @@ const toggleTheme = document.getElementById('toggleTheme');
 
     toggleTheme.addEventListener("click", () => {
       if (html.classList.contains('light')) {
-        html.classList.remove('light'); 
+        html.classList.remove('light');
+        toggleTheme.textContent = '☀️';  
       } else {
-        html.classList.add('light'); 
+        html.classList.add('light');  
+        toggleTheme.textContent = '🌙'; 
       }
     });
 
